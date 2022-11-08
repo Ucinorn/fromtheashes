@@ -1,16 +1,14 @@
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import routes from 'virtual:generated-pages'
-import App from './App.vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
 
-import '@unocss/reset/tailwind.css'
-import './styles/main.css'
-import 'uno.css'
+import App from "./App.vue";
+import router from "./router";
 
-const app = createApp(App)
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-})
-app.use(router)
-app.mount('#app')
+import "./assets/main.css";
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(router);
+
+app.mount("#app");
